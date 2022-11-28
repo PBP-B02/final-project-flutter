@@ -75,5 +75,5 @@ User Article Writer dapat melihat timeline artikel yang telah dibuat oleh Articl
 ## Integrasi Web Service
 Untuk mobile version dari aplikasi Catfish, kami menggunakan Flutter sebagai media utama dalam proses pengembangan front-end aplikasinya. Sedangkan back-end dari Catfish akan memanfaatkan berkas views.py yang telah dibuat pada project-mid-term menggunakan implementasi REST API. Langkah-langkah yang dilakukan adalah sebagai berikut:
 
-### Membuat class remote data source baru yang akan berisi HTTP Client untuk melakukan HTTP request ke Rest API dari aplikasi Catfish.
-### Melakukan integrasi antara front-end dengan back-end pada Rest API Catfish menggunakan konsep asynchronous programming
+#### - Membuat class remote data source baru yang akan berisi HTTP Client untuk melakukan HTTP request ke Rest API dari aplikasi Catfish.
+#### - Melakukan integrasi antara front-end dengan back-end pada Rest API Catfish menggunakan konsep asynchronous programming
