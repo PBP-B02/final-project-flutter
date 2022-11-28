@@ -25,38 +25,20 @@ Daftar modul yang akan diimplementasikan:
 1. Account
 - Dev: Mochammad Iqbal
 - Deskripsi: Implementasi halaman dan fungsi register, login, dan logout
-- Models: Django's Built-in User model, Profile
-- Form: Username, Email, Password, Confirm Password
-- AJAX: Mengecek apakah username atau email tersedia dan mengecek apakah username sudah terdaftar saat login
-- Logout condition: Mengarahkan user ke form login
-- Login condition: Hanya dapat melakukan logout dan tidak dapat mengakses halaman register dan login
 
 2. Cash Flow
 - Dev: Dito Syahputra, Maulana Bayu Risma Santoso Sari
 - Deskripsi: Halaman untuk user mencatat pemasukan dan pengeluarannya
-- Models: CashFlow
-- Form: Nominal, Kategori (pengeluaran atau pemasukan), Tanggal, Deskripsi
-- AJAX: Sebuah pop-up untuk menambahkan atau mengedit riwayat transaksi dan tombol untuk menghapus riwayat
-- Logout condition: Mengarahkan user ke form login
-- Login condition: Menampilkan daftar transaksi yang sudah dibuat
 
 3. Article write
 - Dev: Ramanti Prajna Pratisthita
 - Deskripsi: Halaman untuk writer menambahkan sebuah artikel yang akan ditampilkan pada homepage
-- Models: Article
-- Form: Judul, Deskripsi
-- AJAX: Sebuah pop-up untuk menambahkan atau mengedit artikel dan tombol untuk menghapus artikel
-- Logout condition: Mengarahkan user ke form login
-- Login condition: Menampilkan daftar artikel yang user sudah buat
+
 
 4. Homepage
 - Dev: Failasuf Indi Marsendy
 - Deskripsi: Halaman tampilan awal web
-- Models: Menggunakan models Article untuk menampilkan artikel dalam urutan waktu
-- Form: -
-- AJAX: Melakukan pemanggilan GET artikel di database untuk ditampilkan dalam bentuk preview cards
-- Logout condition: Mengarahkan user ke home page
-- Login condition: Menampilkan preview seluruh artikel yang ada
+
 
 ## User’s Roles
 
