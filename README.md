@@ -27,15 +27,19 @@ Daftar modul yang akan diimplementasikan:
 - Deskripsi: Implementasi halaman dan fungsi register, login, dan logout
 
 2. Cash Flow
-- Dev: Dito Syahputra, Maulana Bayu Risma Santoso Sari
-- Deskripsi: Halaman untuk user mencatat pemasukan dan pengeluarannya
+- Dev: Dito Syahputra
+- Deskripsi: Halaman untuk user mencatat (memasukkan data) pemasukan dan pengeluarannya
 
-3. Article write
+3. Recap Cashflow
+- Dev: Maulana Bayu Risma Santoso Sari
+- Deskripsi: Menampilkan rekap cashflow berdasarkan user 
+
+4. Article write
 - Dev: Ramanti Prajna Pratisthita
 - Deskripsi: Halaman untuk writer menambahkan sebuah artikel yang akan ditampilkan pada homepage
 
 
-4. Homepage
+5. Homepage
 - Dev: Failasuf Indi Marsendy
 - Deskripsi: Halaman tampilan awal web
 
