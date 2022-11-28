@@ -22,51 +22,58 @@ CATFISH merupakan sebuah aplikasi berbasis web yang bertujuan untuk mempermudahk
 
 Daftar modul yang akan diimplementasikan:
 
-1. Account
+### Account
 - Dev: Mochammad Iqbal
 - Deskripsi: Implementasi halaman dan fungsi register, login, dan logout
 
-2. Cash Flow
+### Cash Flow
 - Dev: Dito Syahputra
 - Deskripsi: Halaman untuk user mencatat (memasukkan data) pemasukan dan pengeluarannya
 
-3. Recap Cashflow
+### Recap Cashflow
 - Dev: Maulana Bayu Risma Santoso Sari
 - Deskripsi: Menampilkan rekap cashflow berdasarkan user 
 
-4. Article write
+### Article write
 - Dev: Ramanti Prajna Pratisthita
 - Deskripsi: Halaman untuk writer menambahkan sebuah artikel yang akan ditampilkan pada homepage
 
 
-5. Homepage
+### Homepage
 - Dev: Failasuf Indi Marsendy
 - Deskripsi: Halaman tampilan awal web
 
 
 ## User’s Roles
 
-- Home Page
+### Home Page
 Untuk mempermudah akses user. CATFISH akan dibagi menjadi dua bagian yang membentuk application system yang saling terintegrasi dengan baik, yaitu Regular User dan Article Writer. User akan diarahkan ke home page yang memiliki fitur Register dan Login terpisah untuk masing-masing user. Baik Regular User maupun Article Writer dapat melakukan login setelah mendaftar terlebih dahulu pada home page tersebut.
-- Register
+### Register
 Sebelum menikmati fasilitas CATFISH, user mengisi form registrasi terlebih dahulu dengan menginput data pada empat buah form yaitu username, email, password, dan ulangi password. Kemudian user menekan tombol submit, apabila telah terverifikasi valid maka user akan kembali ke home page.
-- Login
+### Login
 Untuk masuk ke dalam fitur utama, user harus masuk ke halaman login terlebih dahulu, user diminta untuk menginput username dan password, apabila tervalidasi maka user dapat menikmati fasilitas CATFISH.
-- Regular User
-1. Add history pengeluaran
+### Regular User
+
+#### Add history pengeluaran
 CATFISH memberikan kemudahan bagi user untuk merekap pengeluaran dan pemasukan, dengan fitur ini user dapat menambahkan jumlah nominal baik pemasukan maupun pengeluaran. Selain itu untuk memperjelas track cash flow, user dapat menambahkan tanggal form tersebut dibuat beserta deskripsi dan judul form.
-2. Delete History
+#### Delete History
 Fleksibilitas merupakan salah satu yang kami tawarkan, dengan fitur ini user dapat menghapus history cash flow dengan mudah
-3. Rekap Pengeluaran
+#### Rekap Pengeluaran
 Automasi yang ditawarkan CATFISH akan direalisasikan dalam fitur ini, user dapat melihat total pengeluaran per bulan beserta rinciannya yang terbagi sesuai kategori masing-masing.
-4. Show Artikel
-	CATFISH menghadirkan fitur yang saling terintegrasi di antara kedua jenis user, User Reguler dapat melihat artikel yang dibuat oleh Article Writer pada halaman homepage.
+#### Show Artikel
+CATFISH menghadirkan fitur yang saling terintegrasi di antara kedua jenis user, User Reguler dapat melihat artikel yang dibuat oleh Article Writer pada halaman homepage.
 
+### Article Writer
 
-- Article Writer
-1. Add Artikel
+#### Add Artikel
 CATFISH mewadahi user untuk memberikan informasi dengan mudah dan efisien, dengan fitur ini user dapat membuat artikel yang dapat dilihat oleh user hanya dengan menginput form.
-2. Delete Artikel
+#### Delete Artikel
 Untuk menunjang fleksibilitas, user dapat menghapus artikel yang sudah dibuat dengan mudah dalam fitur ini.
-3. Show Artikel
-	User Article Writer dapat melihat timeline artikel yang telah dibuat oleh Article Writer lainnya pada halaman homepage.
+#### Show Artikel
+User Article Writer dapat melihat timeline artikel yang telah dibuat oleh Article Writer lainnya pada halaman homepage.
+
+## Integrasi Web Service
+Untuk mobile version dari aplikasi Catfish, kami menggunakan Flutter sebagai media utama dalam proses pengembangan front-end aplikasinya. Sedangkan back-end dari Catfish akan memanfaatkan berkas views.py yang telah dibuat pada project-mid-term menggunakan implementasi REST API. Langkah-langkah yang dilakukan adalah sebagai berikut:
+
+### Membuat class remote data source baru yang akan berisi HTTP Client untuk melakukan HTTP request ke Rest API dari aplikasi Catfish.
+### Melakukan integrasi antara front-end dengan back-end pada Rest API Catfish menggunakan konsep asynchronous programming
