@@ -1,4 +1,4 @@
-import 'package:catfish/artikel/artikel_page.dart';
+import 'package:catfish/artikel/pages/artikel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -37,7 +37,7 @@ Container buildNavbar(BuildContext context) {
             text: 'Buat Artikel',
             onPressed: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyArtikel()));
+                  MaterialPageRoute(builder: (context) => const ArtikelPage()));
             },
           ),
           GButton(

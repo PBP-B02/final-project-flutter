@@ -1,4 +1,4 @@
-import 'package:catfish/page/navbar.dart';
+import 'package:catfish/artikel/navbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
