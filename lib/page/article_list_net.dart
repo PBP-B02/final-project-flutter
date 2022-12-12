@@ -1,18 +1,22 @@
 import 'dart:async';
 
-import 'package:articlepage/api/artilce_json.dart';
+import 'package:articlepage/util/article_json_fetch.dart';
 import 'package:articlepage/main.dart';
-import 'package:articlepage/models/article.dart';
-import 'package:articlepage/widget/search_article.dart';
+// import 'package:articlepage/api/article_api.dart';
+import 'package:articlepage/model/article_model.dart';
+import 'package:articlepage/util/search_article.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:articlepage/navbar.dart';
+import 'package:artikel/pages/artikel_detail.dart';
 
-class FilterNetworkListPage extends StatefulWidget {
+class ArtikelNet extends StatefulWidget {
   @override
-  FilterNetworkListPageState createState() => FilterNetworkListPageState();
+  ArtikelNetState createState() => ArtikelNetState();
 }
 
-class FilterNetworkListPageState extends State<FilterNetworkListPage> {
-  List<Article> books = [];
+class ArtikelNetState extends State<ArtikelNet> {
+  List<ArticleModel> articels = [];
   String query = '';
   Timer? debouncer;
 
@@ -41,56 +45,59 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
   }
 
   Future init() async {
-    final books = await BooksApi.getArticle(query);
+    final articels = await ArticelsApi.getArticle(query);
 
-    setState(() => this.books = books);
+    setState(() => this.articels = articels);
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          children: <Widget>[
-            buildSearch(),
-            Expanded(
-              child: ListView.builder(
-                itemCount: books.length,
-                itemBuilder: (context, index) {
-                  final book = books[index];
-
-                  return buildBook(book);
-                },
-              ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: buildNavbar(context),
+      body: Column(
+        children: <Widget>[
+          buildSearch(),
+          Expanded(
+            child: ListView.builder(
+              itemCount: articels.length,
+              itemBuilder: (_, index) {
+                final article = articels[index];
+                return buildArticle(article);
+              },
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget buildSearch() => SearchWidget(
         text: query,
-        hintText: 'Title or Author Name',
+        hintText: 'Cari Judul Artikel',
         onChanged: searchBook,
       );
 
+  Widget buildArticle(ArticleModel article) => ListTile(
+        title: Text(article.judul),
+        subtitle: Text(article.tanggal),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailArtikel(
+                        artikel: article,
+                      )));
+        },
+      );
+
   Future searchBook(String query) async => debounce(() async {
-        final books = await BooksApi.getArticle(query);
+        final articels = await ArticelsApi.getArticle(query);
 
         if (!mounted) return;
 
         setState(() {
           this.query = query;
-          this.books = books;
+          this.articels = articels;
         });
       });
-
-  Widget buildBook(Article book) => ListTile(
-        // leading: Image.network(
-        //   book.urlImage,
-        //   fit: BoxFit.cover,
-        //   width: 50,
-        //   height: 50,
-        // ),
-        title: Text(book.title),
-        subtitle: Text(book.author),
-      );
 }

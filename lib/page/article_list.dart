@@ -100,13 +100,6 @@ class _State extends State<ArticleList> {
       );
 
   Widget buildArticle(Article article) => ListTile(
-        // leading: Image.network(
-        //   book.urlImage,
-        //   fit: BoxFit.cover,
-        //   width: 50,
-        //   height: 50,
-        // ),
-
         title: Text(
           article.title,
         ),
