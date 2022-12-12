@@ -1,4 +1,5 @@
 import 'package:catfish/cashflow/page/spending/spending_detail.dart';
+import 'package:catfish/cashflow/page/spending/spending_form.dart';
 import 'package:catfish/cashflow/util/fetch_spending.dart';
 import 'package:catfish/navbar.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,7 @@ class _MySpendingPageState extends State<MySpendingPage> {
                           itemCount: snapshot.data!.length,
                           itemBuilder: (_, index) => GestureDetector(
                             onTap: (){
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
@@ -130,7 +131,15 @@ class _MySpendingPageState extends State<MySpendingPage> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 93, 177, 118)),
               ),
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                    SpendingFormPage()
+                                ),
+                              );
+              },
             ),
           ],
         ),

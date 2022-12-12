@@ -1,4 +1,5 @@
 import 'package:catfish/cashflow/model/my_spending_model.dart';
+import 'package:catfish/cashflow/util/fetch_spending.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -81,7 +82,10 @@ class SpendingDetailPage extends StatelessWidget{
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 193, 43, 43)),
               ),
-              onPressed: (){},
+              onPressed: (){
+                 deleteSpending(spending.pk);
+                 Navigator.pop(context);
+              },
             ),
         ]
 

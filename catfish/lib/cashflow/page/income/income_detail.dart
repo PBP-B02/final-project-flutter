@@ -1,4 +1,6 @@
 import 'package:catfish/cashflow/model/my_income_model.dart';
+import 'package:catfish/cashflow/page/income/my_income_page.dart';
+import 'package:catfish/cashflow/util/fetch_income.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -81,7 +83,11 @@ class IncomeDetailPage extends StatelessWidget{
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 193, 43, 43)),
               ),
-              onPressed: (){},
+              onPressed: (){
+                 deleteIncome(income.pk);
+                 Navigator.pop(context);
+
+              },
             ),
         ]
 

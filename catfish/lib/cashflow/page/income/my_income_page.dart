@@ -73,7 +73,7 @@ class _MyIncomePageState extends State<MyIncomePage> {
                           itemCount: snapshot.data!.length,
                           itemBuilder: (_, index) => GestureDetector(
                             onTap: (){
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
@@ -91,7 +91,7 @@ class _MyIncomePageState extends State<MyIncomePage> {
                               padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                               child: Row(
                                 children:[
-                                  Image.asset('assets/images/salary2.png',
+                                  Image.asset('assets/images/saving.png',
                                   fit: BoxFit.contain,
                                   height: 40,),
                                   SizedBox(width: 5,),

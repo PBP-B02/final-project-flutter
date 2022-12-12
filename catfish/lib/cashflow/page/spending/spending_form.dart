@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:catfish/cashflow/util/fetch_income.dart';
+import 'package:catfish/cashflow/util/fetch_spending.dart';
 
-class IncomeFormPage extends StatefulWidget {
-    const IncomeFormPage({super.key});
+class SpendingFormPage extends StatefulWidget {
+    const SpendingFormPage({super.key});
 
     @override
-    State<IncomeFormPage> createState() => _IncomeFormPageState();
+    State<SpendingFormPage> createState() => _SpendingFormPageState();
 }
 
-class _IncomeFormPageState extends State<IncomeFormPage> {
+class _SpendingFormPageState extends State<SpendingFormPage> {
   final _formKey = GlobalKey<FormState>();
   String name = "";
-  DateTime incomeDate = DateTime.now();
+  DateTime spendingDate = DateTime.now();
   int amount = 0;
-  String incomeType = 'Pilih Jenis';
-  List<String> listJenis = ['Pilih Jenis','Salary', 'Passive', 'Others'];
+  String spendingType = 'Pilih Jenis';
+  List<String> listJenis = ['Pilih Jenis','Food', 'Clothing','Utilities', 'Transportation', 'Saving' ,'Others'];
   List<List<String>> listData = [];
   final fieldName = TextEditingController();
   final fieldAmount = TextEditingController();
@@ -122,7 +122,7 @@ class _IncomeFormPageState extends State<IncomeFormPage> {
                     ),
                 ),
                 DropdownButtonFormField(
-                value: incomeType,
+                value: spendingType,
                 icon: const Icon(Icons.keyboard_arrow_down),
                 items: listJenis.map((String items) {
                 return DropdownMenuItem(
@@ -133,12 +133,12 @@ class _IncomeFormPageState extends State<IncomeFormPage> {
                 
                 onChanged: (String? newValue) {
                 setState(() {
-                    incomeType = newValue!;
+                    spendingType = newValue!;
                 });
                 },
                 
-                validator: (String? incomeType) {
-                            if (incomeType == 'Pilih Jenis') {
+                validator: (String? spendingType) {
+                            if (spendingType == 'Pilih Jenis') {
                                 return 'Silahkan pilih jenis!';
                             }
                             return null;
@@ -146,24 +146,24 @@ class _IncomeFormPageState extends State<IncomeFormPage> {
                 
               ),
             SizedBox(height: 20,),
-            Text("Tanggal pemasukkan :", style: TextStyle(color: Color.fromARGB(97, 0, 0, 0), fontFamily: 'Inter', fontSize: 12),),
+            Text("Tanggal pengeluaran :", style: TextStyle(color: Color.fromARGB(97, 0, 0, 0), fontFamily: 'Inter', fontSize: 12),),
             SizedBox(height: 5,),
-            Text(incomeDate == null ? 'Nothing has been picked yet' : incomeDate.toString().split(" ")[0],style: TextStyle(color: Color.fromARGB(255, 93, 177, 118), fontFamily: 'Inter', fontSize: 20 ,fontWeight: FontWeight.bold),),
+            Text(spendingDate == null ? 'Nothing has been picked yet' : spendingDate.toString().split(" ")[0],style: TextStyle(color: Color.fromARGB(255, 93, 177, 118), fontFamily: 'Inter', fontSize: 20 ,fontWeight: FontWeight.bold),),
             TextButton(
 
-              child: Text('Pilih Tanggal Pemasukkan', style: TextStyle(color: Colors.white, fontFamily: 'Inter', fontSize: 12,)),
+              child: Text('Pilih Tanggal Pengeluaran', style: TextStyle(color: Colors.white, fontFamily: 'Inter', fontSize: 12,)),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 93, 177, 118)),
               ),
               onPressed: () {
                 showDatePicker(
                   context: context,
-                  initialDate: incomeDate,
+                  initialDate: spendingDate,
                   firstDate: DateTime(2001),
                   lastDate: DateTime(2023)
                 ).then((date) {
                   setState(() {
-                    incomeDate = date!;
+                    spendingDate = date!;
                   });
                 });
               },
@@ -178,8 +178,8 @@ class _IncomeFormPageState extends State<IncomeFormPage> {
               ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  addIncome(name, amount, incomeType, incomeDate, context,mounted);
-                  // ListBudget.listdata.add(Budget(name, amount, incomeType));
+                  addSpending(name, amount, spendingType, spendingDate, context,mounted);
+                  // ListBudget.listdata.add(Budget(name, amount, spendingType));
                   showDialog(
                 context: context,
                 builder: (context) {
@@ -214,7 +214,7 @@ class _IncomeFormPageState extends State<IncomeFormPage> {
                                   height: 10,
                                 ),
                                 Text(
-                                  "Jenis: $incomeType",
+                                  "Jenis: $spendingType",
                                   style: TextStyle(color: Color.fromARGB(97, 0, 0, 0)),
                                 ),
                                 const SizedBox(
