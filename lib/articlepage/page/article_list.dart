@@ -1,11 +1,11 @@
 import 'dart:js';
 
-import 'package:articlepage/data/data.dart';
-import 'package:articlepage/models/article.dart';
+import 'package:articlepage/articlepage/model/data.dart';
+import 'package:articlepage/articlepage/model/article.dart';
 import 'package:flutter/material.dart';
 import 'package:articlepage/main.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:articlepage/widget/search_article.dart';
+import 'package:articlepage/articlepage/util/search_article.dart';
 
 class ArticleList extends StatefulWidget {
   const ArticleList({Key? key}) : super(key: key);
