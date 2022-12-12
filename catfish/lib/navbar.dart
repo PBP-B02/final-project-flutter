@@ -1,6 +1,6 @@
 import 'package:catfish/cashflow-recap/page/home_view.dart';
-import 'package:catfish/cashflow/page/cashflow_home.dart';
 import 'package:catfish/artikel/page/artikel.dart';
+import 'package:catfish/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -24,7 +24,7 @@ Container buildNavbar(BuildContext context) {
             icon: Icons.attach_money,
             text: 'Cashflow',
             onPressed: () {
-              MaterialPageRoute(builder: (context) => const CashflowHome());
+              MaterialPageRoute(builder: (context) => const CashflowHome(title: '',));
             },
           ),
           GButton(
@@ -38,7 +38,7 @@ Container buildNavbar(BuildContext context) {
             icon: Icons.article,
             text: 'Artikel',
             onPressed: () {
-              MaterialPageRoute(builder: (context) => const ArtikelNet());
+              // MaterialPageRoute(builder: (context) => const ArtikelNet());
             },
           ),
           GButton(
@@ -46,7 +46,7 @@ Container buildNavbar(BuildContext context) {
             text: 'Buat Artikel',
             onPressed: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyArtikel()));
+                  MaterialPageRoute(builder: (context) => const ArtikelPage()));
             },
           ),
         ],
