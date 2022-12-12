@@ -3,6 +3,7 @@ import 'package:catfish/artikel/page/artikel.dart';
 import 'package:catfish/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:catfish/articlepage/page/article_list_net.dart';
 
 Container buildNavbar(BuildContext context) {
   return Container(
@@ -38,7 +39,9 @@ Container buildNavbar(BuildContext context) {
             icon: Icons.article,
             text: 'Artikel',
             onPressed: () {
-              // MaterialPageRoute(builder: (context) => const ArtikelNet());
+               Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => ArtikelNet())
+               );
             },
           ),
           GButton(
