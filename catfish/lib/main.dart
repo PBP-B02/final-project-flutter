@@ -1,37 +1,13 @@
-import 'package:catfish/artikel/navbar.dart';
+import 'package:catfish/cashflow/page/income/my_income_page.dart';
+import 'package:catfish/cashflow/page/spending/my_spending_page.dart';
+import 'package:catfish/cashflow/util/colormaker.dart';
+import 'package:catfish/navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CashflowHome extends StatefulWidget {
+  const CashflowHome({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -45,22 +21,11 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CashflowHome> createState() => _CashflowHomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _CashflowHomeState extends State<CashflowHome> {
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,43 +40,115 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                  Image.asset(
+                 'assets/images/catfishlogo.png',
+                  fit: BoxFit.contain,
+                  height: 150,
+              ),
+              ],
+
+          ),
+        backgroundColor: Colors.white,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+       // Menambahkan drawer menu
+    bottomNavigationBar: buildNavbar(context),
+      body: Container(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:[
+          const Center(
+            child: Text ("Cashflow Tracker", style: TextStyle(color: Color.fromARGB(255, 93, 177, 118), fontSize: 32, fontWeight: FontWeight.bold, fontFamily: 'Inter'))
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+          const SizedBox(height: 20,),
+          const Center(
+            child: Text ("choose one:", style: TextStyle(color: Color.fromARGB(121, 0, 0, 0), fontSize: 12, fontWeight: FontWeight.normal, fontFamily: 'Inter'))
             ),
-          ],
+          const SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                  MyIncomePage()
+                              ),
+                            );
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.white70, width: 1),
+                borderRadius: BorderRadius.circular(20),
+                ),
+              elevation: 5,
+              color: Color.fromARGB(255, 249, 255, 250),
+
+              child: SizedBox(
+                width: 300,
+                height: 230,
+                child: Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    Text("My Income", style: TextStyle(color: Color.fromARGB(200, 26, 26, 26), fontSize: 21, fontWeight: FontWeight.w600, fontFamily: 'Inter'),),
+                    Image.asset(
+                  'assets/images/vault.png',
+                    fit: BoxFit.contain,
+                    height: 150,
+                    ),
+                    Text("No matter how big or small it is,", style: TextStyle(color: Color.fromARGB(150, 26, 26, 0), fontSize: 13, fontWeight: FontWeight.normal, fontFamily: 'Inter'),),
+                    Text("income is income.", style: TextStyle(color: Color.fromARGB(150, 26, 26, 0), fontSize: 13, fontWeight: FontWeight.normal, fontFamily: 'Inter'),),
+
+                  ]
+                  ),
+                ),
+              ),
+          ),
+          
+          SizedBox(height: 30,),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                  MySpendingPage()
+                              ),
+                            );
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.white70, width: 1),
+                borderRadius: BorderRadius.circular(20),
+                ),
+              elevation: 5,
+              color: Color.fromARGB(255, 249, 255, 250),
+              child: SizedBox(
+                width: 300,
+                height: 230,
+                child: Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    Text("My Spending", style: TextStyle(color: Color.fromARGB(200, 26, 26, 26), fontSize: 21, fontWeight: FontWeight.w600, fontFamily: 'Inter'),),
+                    Image.asset(
+                  'assets/images/spending.png',
+                    fit: BoxFit.contain,
+                    height: 150,
+                    ),
+                    Text("Well tracked, well lived.", style: TextStyle(color: Color.fromARGB(150, 26, 26, 0), fontSize: 13, fontWeight: FontWeight.normal, fontFamily: 'Inter'),),
+
+                  ]
+                  ),
+                ),
+              ),
+          ),
+          ]
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

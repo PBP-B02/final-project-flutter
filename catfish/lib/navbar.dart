@@ -1,3 +1,8 @@
+
+import 'package:catfish/cashflow-recap/page/home_view.dart';
+import 'package:catfish/cashflow/page/cashflow_home.dart';
+import 'package:catfish/artikel/pages/artikel.dart';
+
 import 'package:catfish/artikel/pages/artikel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -22,13 +27,16 @@ Container buildNavbar(BuildContext context) {
             icon: Icons.attach_money,
             text: 'Cashflow',
             onPressed: () {
-              // MaterialPageRoute(builder: (context) => const ClassName_Dito());
+
+              MaterialPageRoute(builder: (context) => const CashflowHome());
+
             },
           ),
           GButton(
             icon: Icons.assessment,
             text: 'Akumulasi',
             onPressed: () {
+
               // MaterialPageRoute(builder: (context) => const ClassName_Bayu());
             },
           ),
@@ -45,6 +53,24 @@ Container buildNavbar(BuildContext context) {
             text: 'Artikel',
             onPressed: () {
               // MaterialPageRoute(builder: (context) => const ArticleList());
+
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const RecapView()));
+            },
+          ),
+          GButton(
+            icon: Icons.article,
+            text: 'Artikel',
+            onPressed: () {
+              MaterialPageRoute(builder: (context) => const ArtikelNet());
+            },
+          ),
+          GButton(
+            icon: Icons.create_rounded,
+            text: 'Buat Artikel',
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const MyArtikel()));
+
             },
           ),
         ],
