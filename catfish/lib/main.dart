@@ -1,5 +1,5 @@
-import 'package:catfish/cashflow/page/my_income_page.dart';
-import 'package:catfish/cashflow/page/my_spending_page.dart';
+import 'package:catfish/cashflow/page/income/my_income_page.dart';
+import 'package:catfish/cashflow/page/spending/my_spending_page.dart';
 import 'package:catfish/cashflow/util/colormaker.dart';
 import 'package:catfish/navbar.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: buildMaterialColor(Color.fromARGB(255, 93, 177, 118)),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

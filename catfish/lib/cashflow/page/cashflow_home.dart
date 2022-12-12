@@ -1,5 +1,5 @@
-import 'package:catfish/cashflow/page/my_income_page.dart';
-import 'package:catfish/cashflow/page/my_spending_page.dart';
+import 'package:catfish/cashflow/page/income/my_income_page.dart';
+import 'package:catfish/cashflow/page/spending/my_spending_page.dart';
 import 'package:catfish/cashflow/util/colormaker.dart';
 import 'package:catfish/navbar.dart';
 import 'package:flutter/material.dart';
@@ -25,33 +25,6 @@ class CashflowHome extends StatefulWidget {
 }
 
 class _CashflowHomeState extends State<CashflowHome> {
-  int _counter = 0;
-  String _paritas = "GENAP";
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      if (_counter % 2 == 0){
-        _paritas = "GENAP";
-      } else{
-        _paritas = "GANJIL";
-      }
-    });
-  }
-  void _decrementCounter() {
-    setState(() {
-      if (_counter != 0){
-        _counter--;
-
-      }
-      if (_counter % 2 == 0){
-        _paritas = "GENAP";
-      } else{
-        _paritas = "GANJIL";
-      }
-    });
-  }
-
 
 
   @override
@@ -111,8 +84,9 @@ class _CashflowHomeState extends State<CashflowHome> {
                 side: BorderSide(color: Colors.white70, width: 1),
                 borderRadius: BorderRadius.circular(20),
                 ),
-              elevation: 2,
+              elevation: 5,
               color: Color.fromARGB(255, 249, 255, 250),
+
               child: SizedBox(
                 width: 300,
                 height: 230,
@@ -150,7 +124,7 @@ class _CashflowHomeState extends State<CashflowHome> {
                 side: BorderSide(color: Colors.white70, width: 1),
                 borderRadius: BorderRadius.circular(20),
                 ),
-              elevation: 2,
+              elevation: 5,
               color: Color.fromARGB(255, 249, 255, 250),
               child: SizedBox(
                 width: 300,
@@ -160,7 +134,7 @@ class _CashflowHomeState extends State<CashflowHome> {
                     SizedBox(height: 10,),
                     Text("My Spending", style: TextStyle(color: Color.fromARGB(200, 26, 26, 26), fontSize: 21, fontWeight: FontWeight.w600, fontFamily: 'Inter'),),
                     Image.asset(
-                  'assets/images/vault.png',
+                  'assets/images/spending.png',
                     fit: BoxFit.contain,
                     height: 150,
                     ),
