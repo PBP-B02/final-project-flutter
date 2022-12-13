@@ -1,5 +1,7 @@
 # Project CATFISH (Cashflow Tracker and Finance Sharing)
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/664f5986-5840-4f14-807a-f3ae094ba09e/branches/main/badge)](https://appcenter.ms)
+
 ## Meet The Team.
 
 - Dito Syahputra (2106638053)
