@@ -81,14 +81,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-=======
   flutter_web_plugins:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
->>>>>>> db95deb9ee039797b99feedd1758104a5453ae9d
   google_nav_bar:
     dependency: "direct main"
     description:
@@ -117,8 +114,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
-<<<<<<< HEAD
-=======
   js:
     dependency: transitive
     description:
@@ -126,7 +121,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
->>>>>>> db95deb9ee039797b99feedd1758104a5453ae9d
   lints:
     dependency: transitive
     description:
