@@ -1,4 +1,5 @@
 import 'package:catfish/cashflow-recap/page/history_income.dart';
+import 'package:catfish/cashflow-recap/page/history_spending.dart';
 import 'package:catfish/cashflow-recap/util/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -169,7 +170,7 @@ class _RecapViewState extends State<RecapView> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                HistoryIncomePage(bulan: bulan,)));
+                                                HistorySpendingPage(bulan: bulan,)));
                                   }
                                 }
                               },
